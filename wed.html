@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Aura bu Angel — ювелирные украшения</title>
+
+<style>
+  /* ═══════════ ШРИФТЫ ═══════════ */
+@font-face {
+  font-family: 'GrosiaPersonalUseOnlyRegular';
+  src: local('GrosiaPersonalUseOnlyRegular-lx77y'),
+       local('GrosiaPersonalUseOnlyRegular'),
+       local('Grosia Personal Use Only Regular');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+  @font-face {
+    font-family: 'Gilroy';
+    src: local('Gilroy-UltraLight'),
+         local('Gilroy UltraLight'),
+         local('Gilroy-Ultra-Light');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  /* ═══════════ ПЕРЕМЕННЫЕ ЦВЕТА ═══════════ */
+  :root {
+    --bg: #FCF6EE;           /* фон сайта */
+    --ink: #4A3433;          /* цвет текста */
+    --card: #FFFBF5;         /* фон карточек/пунктов */
+    --line: rgba(74, 52, 51, 0.12);
+    --line-strong: rgba(74, 52, 51, 0.28);
+    --ink-soft: rgba(74, 52, 51, 0.72);
+    --on-dark: #FCF6EE;      /* текст на тёмном (шапка/подвал) */
+    --on-dark-soft: rgba(252, 246, 238, 0.72);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  html, body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Gilroy', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-weight: 100;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.7;
+  }
+
+  /* ═══════════ ШАПКА ═══════════ */
+  .header {
+    width: 100%;
+    background: var(--ink);
+    color: var(--on-dark);
+    padding: 22px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .header__left {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .header__brand {
+    font-family: 'GrosiaPersonalUseOnlyRegular', 'Gilroy', serif;
+    font-size: 28px;
+    letter-spacing: 0.06em;
+    color: var(--on-dark);
+    line-height: 1.1;
+  }
+
+  .header__tagline {
+    font-family: 'Gilroy', sans-serif;
+    font-weight: 100;
+    font-size: 13px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--on-dark-soft);
+  }
+
+  .header__socials {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .sticker {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: rgba(252, 246, 238, 0.08);
+    border: 1px solid rgba(252, 246, 238, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--on-dark);
+    text-decoration: none;
+    transition: background 0.25s, border-color 0.25s, transform 0.25s;
+  }
+  .sticker:hover {
+    background: rgba(252, 246, 238, 0.16);
+    border-color: rgba(252, 246, 238, 0.5);
+    transform: translateY(-2px);
+  }
+  .sticker svg { width: 18px; height: 18px; }
+
+  /* ═══════════ ОСНОВНОЙ КОНТЕНТ ═══════════ */
+  .main {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 70px 40px 90px;
+  }
+
+  .section { margin-bottom: 70px; }
+  .section:last-child { margin-bottom: 0; }
+
+  .section__title {
+    font-family: 'Grosia', 'Gilroy', serif;
+    font-size: 34px;
+    letter-spacing: 0.03em;
+    color: var(--ink);
+    margin-bottom: 24px;
+    line-height: 1.2;
+  }
+
+  .section__lead {
+    font-size: 17px;
+    color: var(--ink);
+    margin-bottom: 18px;
+  }
+
+  .section p {
+    font-size: 17px;
+    color: var(--ink);
+    margin-bottom: 14px;
+  }
+  .section p:last-child { margin-bottom: 0; }
+
+  /* Мягкие списки — теперь в виде карточек со скруглёнными краями */
+  .soft-list {
+    list-style: none;
+    padding: 0;
+    margin: 6px 0 16px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .soft-list li {
+    padding: 16px 22px;
+    font-size: 17px;
+    color: var(--ink);
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+  }
+  .soft-list li:hover {
+    border-color: var(--line-strong);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 26px rgba(74, 52, 51, 0.06);
+  }
+
+  /* Пронумерованный список — каждый пункт карточка */
+  .steps {
+    list-style: none;
+    counter-reset: step;
+    padding: 0;
+    margin: 10px 0 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .steps li {
+    counter-increment: step;
+    position: relative;
+    padding: 16px 22px 16px 64px;
+    font-size: 17px;
+    color: var(--ink);
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    min-height: 32px;
+    transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+  }
+  .steps li:hover {
+    border-color: var(--line-strong);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 26px rgba(74, 52, 51, 0.06);
+  }
+  .steps li::before {
+    content: counter(step);
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid var(--line-strong);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Grosia', serif;
+    font-size: 14px;
+    color: var(--ink);
+    background: var(--bg);
+  }
+
+  /* Небольшие заголовки внутри секций */
+  .subtitle {
+    font-family: 'Grosia', serif;
+    font-size: 20px;
+    letter-spacing: 0.02em;
+    color: var(--ink);
+    margin: 26px 0 12px;
+  }
+
+  /* Карточки-строки для «Наличие и предзаказ» */
+  .info-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 12px;
+  }
+  .info-card {
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 22px 24px;
+    background: var(--card);
+  }
+  .info-card__title {
+    font-family: 'Grosia', serif;
+    font-size: 18px;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+  .info-card p {
+    font-size: 16px;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .info-card p:last-child { margin-bottom: 0; }
+
+  /* Таблица доп. услуг */
+  .services {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    font-size: 16px;
+  }
+  .services th,
+  .services td {
+    text-align: left;
+    padding: 14px 4px;
+    border-bottom: 1px solid var(--line);
+    color: var(--ink);
+    font-weight: 100;
+  }
+  .services th {
+    font-family: 'Grosia', serif;
+    font-size: 14px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink);
+    border-bottom: 1px solid var(--line-strong);
+  }
+  .services td:last-child,
+  .services th:last-child { text-align: right; }
+
+  /* Блок «не брак / брак» */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    margin-top: 12px;
+  }
+  .two-col__title {
+    font-family: 'Grosia', serif;
+    font-size: 18px;
+    color: var(--ink);
+    margin-bottom: 10px;
+    letter-spacing: 0.02em;
+  }
+
+  /* ═══════════ FAQ (аккордеон) ═══════════ */
+  .faq {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .faq__item {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 0 24px;
+    transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+    overflow: hidden;
+  }
+
+  .faq__item:hover {
+    border-color: var(--line-strong);
+    transform: translateY(-3px);
+    box-shadow: 0 14px 30px rgba(74, 52, 51, 0.07);
+  }
+
+  .faq__item.open {
+    border-color: var(--ink);
+    box-shadow: 0 14px 30px rgba(74, 52, 51, 0.08);
+  }
+
+  .faq__question {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 22px 0;
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    font-family: 'Gilroy', sans-serif;
+    font-weight: 100;
+    font-size: 18px;
+    color: var(--ink);
+    letter-spacing: 0.01em;
+    transition: color 0.2s;
+  }
+  .faq__question:hover { color: var(--ink-soft); }
+
+  .faq__icon {
+    flex-shrink: 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid var(--line-strong);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                border-color 0.25s,
+                background 0.25s;
+  }
+  .faq__icon::before,
+  .faq__icon::after {
+    content: "";
+    position: absolute;
+    background: var(--ink);
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), background 0.25s;
+  }
+  .faq__icon::before { width: 11px; height: 1px; }
+  .faq__icon::after  { width: 1px;  height: 11px; }
+
+  .faq__item.open .faq__icon {
+    transform: rotate(180deg);
+    border-color: var(--ink);
+    background: var(--bg);
+  }
+  .faq__item.open .faq__icon::after {
+    transform: scaleY(0);
+  }
+
+  .faq__answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .faq__answer-inner {
+    padding: 0 0 24px 0;
+    font-size: 17px;
+    color: var(--ink);
+    line-height: 1.75;
+  }
+  .faq__answer-inner p {
+    margin-bottom: 10px;
+    font-size: 17px;
+  }
+  .faq__answer-inner p:last-child { margin-bottom: 0; }
+
+  /* ═══════════ ПОДВАЛ ═══════════ */
+  .footer {
+    width: 100%;
+    background: var(--ink);
+    color: var(--on-dark);
+    padding: 72px 40px 56px;
+    text-align: center;
+  }
+
+  .footer__brand {
+    font-family: 'Grosia', serif;
+    font-size: 44px;
+    letter-spacing: 0.06em;
+    color: var(--on-dark);
+    line-height: 1.15;
+    margin-bottom: 8px;
+  }
+
+  .footer__tagline {
+    font-family: 'Gilroy', sans-serif;
+    font-weight: 100;
+    font-size: 14px;
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
+    color: var(--on-dark-soft);
+    margin-bottom: 40px;
+  }
+
+  .footer__contacts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px 40px;
+    margin-bottom: 32px;
+  }
+  .footer__contacts a,
+  .footer__contacts span {
+    color: var(--on-dark);
+    text-decoration: none;
+    font-size: 16px;
+    letter-spacing: 0.04em;
+    transition: color 0.2s, opacity 0.2s;
+    opacity: 0.9;
+  }
+  .footer__contacts a:hover { color: var(--on-dark); opacity: 1; }
+
+  .footer__socials {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    margin-bottom: 36px;
+  }
+  .footer__socials .sticker {
+    width: 48px;
+    height: 48px;
+  }
+  .footer__socials .sticker svg { width: 20px; height: 20px; }
+
+  .footer__note {
+    font-size: 13px;
+    letter-spacing: 0.18em;
+    color: var(--on-dark-soft);
+    text-transform: uppercase;
+  }
+
+  /* ═══════════ АДАПТИВ ═══════════ */
+  @media (max-width: 900px) {
+    .header { padding: 20px 24px; }
+    .main { padding: 50px 24px 70px; }
+    .section__title { font-size: 30px; }
+    .footer { padding: 56px 24px 44px; }
+    .footer__brand { font-size: 36px; }
+    .info-row { grid-template-columns: 1fr; }
+    .two-col { grid-template-columns: 1fr; gap: 22px; }
+  }
+
+  @media (max-width: 600px) {
+    .header {
+      padding: 18px 18px;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 14px;
+    }
+    .header__brand { font-size: 24px; }
+    .header__tagline { font-size: 11px; letter-spacing: 0.26em; }
+    .sticker { width: 38px; height: 38px; }
+    .sticker svg { width: 16px; height: 16px; }
+
+    .main { padding: 40px 18px 60px; }
+    .section { margin-bottom: 52px; }
+    .section__title { font-size: 24px; margin-bottom: 18px; }
+    .section p, .section__lead, .soft-list li, .steps li { font-size: 16px; }
+    .subtitle { font-size: 18px; }
+    .soft-list li { padding: 14px 18px; }
+    .steps li { padding: 14px 18px 14px 58px; }
+    .steps li::before { width: 28px; height: 28px; font-size: 13px; left: 18px; }
+
+    .faq { gap: 10px; }
+    .faq__item { padding: 0 18px; border-radius: 14px; }
+    .faq__question { font-size: 17px; padding: 18px 0; }
+    .faq__icon { width: 28px; height: 28px; }
+    .faq__answer-inner { font-size: 16px; padding-bottom: 20px; }
+
+    .footer { padding: 48px 18px 38px; }
+    .footer__brand { font-size: 30px; }
+    .footer__tagline { font-size: 12px; letter-spacing: 0.26em; margin-bottom: 32px; }
+    .footer__contacts { gap: 10px 22px; }
+    .footer__contacts a, .footer__contacts span { font-size: 15px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════ ШАПКА ═══════════ -->
+<header class="header">
+  <div class="header__left">
+    <div class="header__brand">Aura bu Angel</div>
+    <div class="header__tagline">Ювелирные украшения</div>
+  </div>
+
+  <nav class="header__socials" aria-label="Соцсети">
+    <a class="sticker" href="https://t.me/" target="_blank" rel="noopener" aria-label="Telegram" title="Telegram">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.9 4.4l-3.3 15.6c-.2 1.1-.9 1.3-1.8.8l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.3-5 9.1-8.2c.4-.4-.1-.6-.6-.2L6.6 13.3l-4.8-1.5c-1-.3-1-1 .2-1.5l18.8-7.2c.9-.3 1.6.2 1.1 1.3z"/></svg>
+    </a>
+    <a class="sticker" href="https://wa.me/" target="_blank" rel="noopener" aria-label="WhatsApp" title="WhatsApp">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 3.9C17.9 1.8 15.1.6 12 .6 5.7.6.6 5.7.6 12c0 2 .5 3.9 1.5 5.6L.5 23.5l6-1.6c1.6.9 3.5 1.4 5.5 1.4 6.3 0 11.4-5.1 11.4-11.4 0-3-1.2-5.9-3.4-8zM12 21.4c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4c-1-1.6-1.5-3.4-1.5-5.3C2.2 6.5 6.6 2.1 12 2.1c2.7 0 5.2 1 7.1 3 1.9 1.9 2.9 4.4 2.9 7.1 0 5.4-4.4 9.2-10 9.2zm5.5-6.8c-.3-.2-1.8-.9-2.1-1s-.5-.2-.7.2-.8 1-.9 1.2c-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.6c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5s-.7-1.7-.9-2.3c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1 2.9 1.2 3.1c.2.2 2 3.1 4.9 4.3 1.9.8 2.6.9 3.6.7.6-.1 1.8-.7 2.1-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.2-.5-.3z"/></svg>
+    </a>
+    <a class="sticker" href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/></svg>
+    </a>
+  </nav>
+</header>
+
+<!-- ═══════════ ОСНОВНОЙ КОНТЕНТ ═══════════ -->
+<main class="main">
+
+  <!-- О магазине -->
+  <section class="section">
+    <h2 class="section__title">О магазине</h2>
+    <p class="section__lead">Aura bu Angel — украшения, которые хочется носить каждый день.</p>
+    <p>Мы не держим огромный склад и не продаём «всё подряд». Каждое украшение отбирается вручную: смотрим на качество, на то, как оно выглядит вживую, как сидит на руке или на шее. Если что-то не нравится нам — оно не попадает в магазин.</p>
+    <p>Часть украшений уже есть в наличии, часть приезжает под заказ. Так у нас нет залежавшегося товара, а вы получаете именно то, что выбрали — новым и в фирменной упаковке.</p>
+    <p>Мы не гоняемся за количеством. Мы хотим, чтобы вы открыли посылку и улыбнулись.</p>
+  </section>
+
+  <!-- Как заказать -->
+  <section class="section">
+    <h2 class="section__title">Как заказать</h2>
+    <ol class="steps">
+      <li>Выбираете украшение в нашем Telegram-канале или Instagram.</li>
+      <li>Пишете нам: название или фото украшения.</li>
+      <li>Мы подтверждаем, есть ли оно в наличии или придёт под заказ, называем сроки и итоговую стоимость.</li>
+      <li>Вы вносите оплату.</li>
+      <li>Мы отправляем заказ или оформляем предзаказ у поставщика.</li>
+      <li>Проверяем, упаковываем и отправляем вам трек-номер для отслеживания.</li>
+    </ol>
+    <p style="margin-top: 16px;">Отвечаем лично, без ботов и шаблонных отписок.</p>
+  </section>
+
+  <!-- Оплата -->
+  <section class="section">
+    <h2 class="section__title">Оплата</h2>
+    <ul class="soft-list">
+      <li>Перевод на карту Сбербанк</li>
+      <li>Оплата по QR-коду</li>
+    </ul>
+    <p>Оплата — 100%. Для заказов под заказ это важно: мы сразу оформляем украшение у поставщика, поэтому заказ отправляется в работу только после оплаты.</p>
+  </section>
+
+  <!-- Наличие и предзаказ -->
+  <section class="section">
+    <h2 class="section__title">Наличие и предзаказ</h2>
+    <div class="info-row">
+      <div class="info-card">
+        <div class="info-card__title">В наличии</div>
+        <p>Отправляем в течение 1–3 рабочих дней.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card__title">Под заказ</div>
+        <p>Заказываем у поставщика специально для вас.</p>
+        <p>Срок: 7–21 рабочий день с момента оплаты.</p>
+      </div>
+    </div>
+    <p style="margin-top: 16px;">Точный срок сообщаем при подтверждении заказа — он зависит от позиции и поставщика. Если украшение под заказ вдруг недоступно, мы сообщаем об этом в течение 24 часов и предлагаем замену или возврат суммы.</p>
+  </section>
+
+  <!-- Доставка -->
+  <section class="section">
+    <h2 class="section__title">Доставка</h2>
+
+    <div class="subtitle">По Майкопу</div>
+    <ul class="soft-list">
+      <li>Самовывоз — бесплатно, место и время согласовываем в личных сообщениях.</li>
+      <li>Курьер по городу — стоимость зависит от района, уточняйте при заказе.</li>
+    </ul>
+    <p>Заказы по городу упаковываем легко: фирменная коробочка, пакет, наклейка и открытка. Без лишнего слоя плёнки — чтобы вы сразу могли достать украшение и примерить.</p>
+
+    <div class="subtitle">По России</div>
+    <ul class="soft-list">
+      <li>СДЭК — до пункта выдачи или курьером до двери. Срок: 3–10 рабочих дней после отправки.</li>
+      <li>Почта России — до отделения или курьером. Срок: 5–14 рабочих дней после отправки.</li>
+      <li>Стоимость — по тарифам перевозчика, без наценки с нашей стороны.</li>
+    </ul>
+    <p>Заказы в другие города упаковываем надёжно: защитная плёнка, дополнительный слой защиты, почтовый конверт или коробка. Украшение должно доехать в идеальном состоянии — даже если посылка проведёт в пути две недели.</p>
+    <p>Трек-номер присылаем сразу после отправки.</p>
+  </section>
+
+  <!-- Упаковка -->
+  <section class="section">
+    <h2 class="section__title">Упаковка</h2>
+
+    <div class="subtitle">Базовая (входит в стоимость)</div>
+    <ul class="soft-list">
+      <li>Фирменная коробочка Aura bu Angel</li>
+      <li>Наклейка с логотипом</li>
+      <li>Открытка с благодарностью — по желанию напишем пожелание от руки</li>
+      <li>Защитная упаковка: для города — пакет, для других городов — плёнка и дополнительная защита</li>
+    </ul>
+
+    <div class="subtitle">Подарочная (за доплату)</div>
+    <ul class="soft-list">
+      <li>Подарочный пакет с логотипом</li>
+      <li>Лента и декоративный бант</li>
+      <li>Открытка с индивидуальным текстом</li>
+    </ul>
+    <p>Если украшение — подарок, напишите нам. Соберём так, чтобы можно было вручать сразу, ничего не доделывая.</p>
+  </section>
+
+  <!-- Гарантия -->
+  <section class="section">
+    <h2 class="section__title">Гарантия</h2>
+    <p>На все украшения действует гарантия 12 дней с момента получения заказа. Если за это время обнаружился производственный брак — мы решаем вопрос за счёт магазина: меняем украшение или возвращаем деньги.</p>
+
+    <div class="two-col">
+      <div>
+        <div class="two-col__title">Это брак</div>
+        <ul class="soft-list">
+          <li>Скол, трещина или повреждение камня, вставки</li>
+          <li>Отслоение, облезание или неровное покрытие</li>
+          <li>Неисправный замок: не застёгивается, расстёгивается сам, сломан штифт или швенза</li>
+          <li>Деформация основы, заломы, погнутые элементы</li>
+          <li>Острые края, которые царапают кожу</li>
+          <li>Камень не держится в закрепке или выпадает</li>
+          <li>Несоответствие размера заявленному</li>
+          <li>Пришло не то украшение, не тот цвет или не та позиция</li>
+        </ul>
+      </div>
+      <div>
+        <div class="two-col__title">Это не брак</div>
+        <ul class="soft-list">
+          <li>Естественные потёртости, появившиеся при носке</li>
+          <li>Потемнение или изменение цвета из-за контакта с водой, парфюмом, косметикой, потом</li>
+          <li>Механические повреждения по вине покупателя: уронили, сжали, погнули</li>
+          <li>Повреждения из-за несоблюдения ухода за украшением</li>
+          <li>Украшение подошло по качеству, но не подошло по размеру или просто не понравилось</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Возврат и обмен -->
+  <section class="section">
+    <h2 class="section__title">Возврат и обмен</h2>
+
+    <div class="subtitle">Если обнаружен брак</div>
+    <ul class="soft-list">
+      <li>Свяжитесь с нами в течение 12 дней с момента получения заказа.</li>
+      <li>Пришлите фото или видео дефекта.</li>
+      <li>Мы подтверждаем брак и согласовываем решение: замена или возврат денег.</li>
+      <li>Возврат или замена — за счёт магазина.</li>
+    </ul>
+
+    <div class="subtitle">Если украшение не подошло по размеру</div>
+    <p>Напишите нам — по возможности поможем с обменом на нужный размер. Обмен возможен, если украшение не было в носке, сохранило товарный вид и нужный размер есть в наличии. Условия обмена согласовываем индивидуально.</p>
+
+    <div class="subtitle">Если украшение не подошло по другим причинам</div>
+    <p>Украшения надлежащего качества (без брака) возврату и обмену не подлежат. Поэтому, пожалуйста, внимательно проверяйте размер, цвет и описание перед заказом — а если сомневаетесь, напишите нам, поможем выбрать.</p>
+
+    <p style="margin-top: 18px;"><strong>Важно:</strong> если заказ пришёл дистанционно, сохраните бирку или ценник с уникальным идентификационным номером. Без неё оформить возврат по браку не получится. Просто не выбрасывайте бирку, пока не убедитесь, что всё в порядке.</p>
+  </section>
+
+  <!-- Дополнительные услуги -->
+  <section class="section">
+    <h2 class="section__title">Дополнительные услуги</h2>
+    <table class="services">
+      <thead>
+        <tr>
+          <th>Услуга</th>
+          <th>Стоимость</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Подарочная упаковка</td><td>уточняется</td></tr>
+        <tr><td>Открытка с индивидуальным текстом</td><td>бесплатно</td></tr>
+        <tr><td>Срочный предзаказ (7 дней)</td><td>уточняется</td></tr>
+        <tr><td>Курьер по Майкопу</td><td>зависит от района</td></tr>
+        <tr><td>Самовывоз по Майкопу</td><td>бесплатно</td></tr>
+        <tr><td>СДЭК / Почта России</td><td>по тарифу перевозчика</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <h2 class="section__title">Частые вопросы</h2>
+    <div class="faq" id="faq">
+
+      <div class="faq__item">
+        <button class="faq__question" type="button">
+          Сколько стоит?
+          <span class="faq__icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq__answer"><div class="faq__answer-inner">
+          <p>Стоимость указана в Telegram-канале рядом с каждым украшением. В неё уже входит фирменная упаковка: коробочка, наклейка и открытка. Если нужно подарочное оформление — его можно добавить за отдельную стоимость.</p>
+        </div></div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__question" type="button">
+          А можно дешевле? Скидку?
+          <span class="faq__icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq__answer"><div class="faq__answer-inner">
+          <p>Цены честные — мы не завышаем, чтобы потом «дать скидку». Но если берёте два украшения или больше — можем сделать небольшую скидку. Напишите, что присмотрели, — посчитаем.</p>
+        </div></div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__question" type="button">
+          А есть что-то подешевле?
+          <span class="faq__icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq__answer"><div class="faq__answer-inner">
+          <p>Конечно. Скажите примерный бюджет — подберём 3–4 варианта в нём. Не обещаем, что будет точь-в-точь как на фото, но что-то близкое по стилю обязательно найдём.</p>
+        </div></div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__question" type="button">
+          Это есть в наличии?
+          <span class="faq__icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq__answer"><div class="faq__answer-inner">
+          <p>Уточним сразу, как только вы напишете. Если в наличии — отправим в течение 1–3 дней. Если под заказ — приедет за 7–21 день, точнее скажем после подтверждения у поставщика.</p>
+        </div></div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__question" type="button">
+          Когда придёт заказ?
+          <span class="faq__icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq__answer"><div class="faq__answer-inner">
+          <p>По Майкопу: самовывоз — в день готовности, курьер — на следующий день. По России: СДЭК 3–10 дней, Почта 5–14 дней после отправки. Если это предзаказ, сначала 7–21 день ждём украшение от поставщика, потом уже отправка.</p>
+        </div></div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__question" type="button">
+          Можно быстрее?
+          <span class="faq__icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq__answer"><div class="faq__answer-inner">
+          <p>Иногда — да, если позиция есть у поставщика на складе. Напишите, что и к какой дате нужно, — постараемся ускорить, если это реально. Если нет — честно скажем.</p>
+        </div></div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__question" type="button">
+          Как оплатить?
+          <span class="faq__icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq__answer"><div class="faq__answer-inner">
+          <p>Переводом на карту Сбербанк или по QR-коду. После оплаты пришлём подтверждение и скажем, когда ждать отправку.</p>
+        </div></div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__question" type="button">
+          А можно наложенным платежом?
+          <span class="faq__icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq__answer"><div class="faq__answer-inner">
+          <p>Наложенным платежом не отправляем. Все заказы — по предоплате: так мы оформляем украшение у поставщика сразу и не держим деньги «в подвешенном» состоянии. Если сомневаетесь — начнём с одного небольшого заказа, дальше будет проще.</p>
+        </div></div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__question" type="button">
+          Можно оплатить частями?
+          <span class="faq__icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq__answer"><div class="faq__answer-inner">
+          <p>К сожалению, нет. Работаем по полной предоплате. Если хочется снизить сумму — можно выбрать украшение дешевле.</p>
+        </div></div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__question" type="button">
+          Какой размер выбрать?
+          <span class="faq__icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq__answer"><div class="faq__answer-inner">
+          <p>Если не уверены — напишите, поможем. Скажите, какой размер вы обычно носите в кольцах или цепочках. Если это подарок — назовите примерный рост и телосложение, подберём что-то универсальное.</p>
+        </div></div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__question" type="button">
+          Фото соответствует реальности?
+          <span class="faq__icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq__answer"><div class="faq__answer-inner">
+          <p>Фото — от поставщика, мы их не «дорабатываем». Если хотите, можем снять на видео, как украшение выглядит при обычном свете, — чтобы не было сюрпризов.</p>
+        </div></div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__question" type="button">
+          А если не подойдёт?
+          <span class="faq__icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq__answer"><div class="faq__answer-inner">
+          <p>Если это брак — решаем за счёт магазина: замена или возврат денег, гарантия 12 дней. Если просто не подошло по размеру — по возможности поменяем. Если не подошло по стилю — к сожалению, обменять украшение без брака не получится, поэтому перед заказом лучше уточнить детали. Если сомневаетесь — напишите, поможем выбрать.</p>
+        </div></div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__question" type="button">
+          А если придёт брак?
+          <span class="faq__icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq__answer"><div class="faq__answer-inner">
+          <p>Сразу пишите нам — в течение 12 дней с момента получения. Пришлите фото или видео дефекта, и мы решим вопрос за счёт магазина: заменой или возвратом. Главное — не выбрасывайте бирку с номером, она нужна для оформления.</p>
+        </div></div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__question" type="button">
+          Отправите в мой город?
+          <span class="faq__icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq__answer"><div class="faq__answer-inner">
+          <p>Да, отправляем по всей России. СДЭК или Почта — как вам удобнее. Стоимость — по тарифу перевозчика, без наценки.</p>
+        </div></div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__question" type="button">
+          Сколько будет стоить доставка?
+          <span class="faq__icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq__answer"><div class="faq__answer-inner">
+          <p>Зависит от города и веса. По Майкопу — самовывоз бесплатно, курьер — зависит от района. По России: СДЭК обычно от 420 ₽, Почта от 450 ₽. Точную сумму назовём, когда уточним город и вес посылки.</p>
+        </div></div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__question" type="button">
+          Можно посмотреть вживую?
+          <span class="faq__icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq__answer"><div class="faq__answer-inner">
+          <p>Если вы в Майкопе — да, можно встретиться. Напишите, что хотите посмотреть, и мы привезём на встречу. По другим городам, к сожалению, только отправка.</p>
+        </div></div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__question" type="button">
+          А вы не мошенник?
+          <span class="faq__icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq__answer"><div class="faq__answer-inner">
+          <p>Понимаем, вопрос справедливый. Мы новички на рынке, и пока нет сотен отзывов. Но работаем лично, отвечаем на сообщения сами и готовы начать с одного небольшого заказа — так вы сможете проверить, как всё устроено, без риска. Если что-то не так — мы на связи и отвечаем за слова.</p>
+        </div></div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__question" type="button">
+          А отзывы есть?
+          <span class="faq__icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq__answer"><div class="faq__answer-inner">
+          <p>Пока мало, потому что магазин новый. Если вы закажете — мы попросим оставить отзыв, если захотите. Это честно с обеих сторон.</p>
+        </div></div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<!-- ═══════════ ПОДВАЛ ═══════════ -->
+<footer class="footer">
+  <div class="footer__brand">Aura bu Angel</div>
+  <div class="footer__tagline">Ювелирные украшения</div>
+
+  <div class="footer__contacts">
+    <a href="tel:+79002563534">+7 906 438-29-03</a>
+    <a href="mailto:anzhela.ashinovaa@mail.ru">anzela171@icloud.com</a>
+    <a href="https://t.me/aurabyangel_jw" target="_blank" rel="noopener">Telegram</a>
+    <a href="https://wa.me/79064382903" target="_blank" rel="noopener">WhatsApp</a>
+    <a href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a>
+  </div>
+
+  <div class="footer__socials">
+    <a class="sticker" href="https://t.me/aurabyangel_jw" target="_blank" rel="noopener" aria-label="Telegram">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.9 4.4l-3.3 15.6c-.2 1.1-.9 1.3-1.8.8l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.3-5 9.1-8.2c.4-.4-.1-.6-.6-.2L6.6 13.3l-4.8-1.5c-1-.3-1-1 .2-1.5l18.8-7.2c.9-.3 1.6.2 1.1 1.3z"/></svg>
+    </a>
+    <a class="sticker" href="https://wa.me/79064382903" target="_blank" rel="noopener" aria-label="WhatsApp">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 3.9C17.9 1.8 15.1.6 12 .6 5.7.6.6 5.7.6 12c0 2 .5 3.9 1.5 5.6L.5 23.5l6-1.6c1.6.9 3.5 1.4 5.5 1.4 6.3 0 11.4-5.1 11.4-11.4 0-3-1.2-5.9-3.4-8zM12 21.4c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4c-1-1.6-1.5-3.4-1.5-5.3C2.2 6.5 6.6 2.1 12 2.1c2.7 0 5.2 1 7.1 3 1.9 1.9 2.9 4.4 2.9 7.1 0 5.4-4.4 9.2-10 9.2zm5.5-6.8c-.3-.2-1.8-.9-2.1-1s-.5-.2-.7.2-.8 1-.9 1.2c-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.6c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5s-.7-1.7-.9-2.3c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1 2.9 1.2 3.1c.2.2 2 3.1 4.9 4.3 1.9.8 2.6.9 3.6.7.6-.1 1.8-.7 2.1-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.2-.5-.3z"/></svg>
+    </a>
+    <a class="sticker" href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/></svg>
+    </a>
+  </div>
+
+  <div class="footer__note">© Aura bu Angel · Майкоп · 2026</div>
+</footer>
+
+<script>
+  // ═══════════ FAQ АККОРДЕОН ═══════════
+  document.querySelectorAll('.faq__item').forEach(item => {
+    const btn = item.querySelector('.faq__question');
+    const ans = item.querySelector('.faq__answer');
+
+    btn.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+
+      // Закрываем все остальные
+      document.querySelectorAll('.faq__item.open').forEach(other => {
+        if (other !== item) {
+          other.classList.remove('open');
+          other.querySelector('.faq__answer').style.maxHeight = null;
+        }
+      });
+
+      // Переключаем текущий
+      if (isOpen) {
+        item.classList.remove('open');
+        ans.style.maxHeight = null;
+      } else {
+        item.classList.add('open');
+        ans.style.maxHeight = ans.scrollHeight + 'px';
+      }
+    });
+  });
+
+  // Пересчёт высоты при ресайзе
+  window.addEventListener('resize', () => {
+    document.querySelectorAll('.faq__item.open .faq__answer').forEach(ans => {
+      ans.style.maxHeight = ans.scrollHeight + 'px';
+    });
+  });
+</script>
+
+</body>
+</html>
