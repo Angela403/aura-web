@@ -29,14 +29,15 @@
 
   /* ═══════════ ПЕРЕМЕННЫЕ ЦВЕТА ═══════════ */
   :root {
-    --bg: #FCF6EE;           /* фон сайта */
-    --ink: #4A3433;          /* цвет текста */
-    --card: #FFFBF5;         /* фон карточек/пунктов */
-    --line: rgba(74, 52, 51, 0.12);
-    --line-strong: rgba(74, 52, 51, 0.28);
-    --ink-soft: rgba(74, 52, 51, 0.72);
-    --on-dark: #FCF6EE;      /* текст на тёмном (шапка/подвал) */
-    --on-dark-soft: rgba(252, 246, 238, 0.72);
+    --bg: #013E37;                                  /* фон сайта (тёмно-зелёный) */
+    --ink: #F4C9D6;                                 /* цвет текста (розовый) */
+    --card: rgba(244, 201, 214, 0.06);              /* фон карточек */
+    --line: rgba(244, 201, 214, 0.18);
+    --line-strong: rgba(244, 201, 214, 0.42);
+    --ink-soft: rgba(244, 201, 214, 0.72);
+    --header-bg: #F4C9D6;                           /* фон шапки/подвала */
+    --on-dark: #013E37;                             /* текст на шапке/подвале */
+    --on-dark-soft: rgba(1, 62, 55, 0.7);
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -58,7 +59,7 @@
     top: 0;
     z-index: 1000;
     width: 100%;
-    background: var(--ink);
+    background: var(--header-bg);
     color: var(--on-dark);
     padding: 22px 40px;
     display: flex;
@@ -76,7 +77,7 @@
   }
 
   .header__brand {
-    font-family: 'GrosiaPersonalUseOnlyRegular', 'Gilroy', serif;
+    font-family: 'GrosiaPersonalUseOnlyRegular', 'Grosia', 'Gilroy', serif;
     font-size: 28px;
     letter-spacing: 0.06em;
     color: var(--on-dark);
@@ -103,8 +104,8 @@
     width: 42px;
     height: 42px;
     border-radius: 50%;
-    background: rgba(252, 246, 238, 0.08);
-    border: 1px solid rgba(252, 246, 238, 0.25);
+    background: rgba(1, 62, 55, 0.08);
+    border: 1px solid rgba(1, 62, 55, 0.22);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -113,8 +114,8 @@
     transition: background 0.25s, border-color 0.25s, transform 0.25s;
   }
   .sticker:hover {
-    background: rgba(252, 246, 238, 0.16);
-    border-color: rgba(252, 246, 238, 0.5);
+    background: rgba(1, 62, 55, 0.16);
+    border-color: rgba(1, 62, 55, 0.45);
     transform: translateY(-2px);
   }
   .sticker svg { width: 18px; height: 18px; }
@@ -172,7 +173,7 @@
   .soft-list li:hover {
     border-color: var(--line-strong);
     transform: translateY(-2px);
-    box-shadow: 0 12px 26px rgba(74, 52, 51, 0.06);
+    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.25);
   }
 
   /* Пронумерованный список — каждый пункт карточка */
@@ -200,7 +201,7 @@
   .steps li:hover {
     border-color: var(--line-strong);
     transform: translateY(-2px);
-    box-shadow: 0 12px 26px rgba(74, 52, 51, 0.06);
+    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.25);
   }
   .steps li::before {
     content: counter(step);
@@ -218,7 +219,7 @@
     font-family: 'Grosia', serif;
     font-size: 14px;
     color: var(--ink);
-    background: var(--bg);
+    background: rgba(1, 62, 55, 0.6);
   }
 
   /* Небольшие заголовки внутри секций */
@@ -317,12 +318,12 @@
   .faq__item:hover {
     border-color: var(--line-strong);
     transform: translateY(-3px);
-    box-shadow: 0 14px 30px rgba(74, 52, 51, 0.07);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.28);
   }
 
   .faq__item.open {
     border-color: var(--ink);
-    box-shadow: 0 14px 30px rgba(74, 52, 51, 0.08);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.3);
   }
 
   .faq__question {
@@ -372,7 +373,7 @@
   .faq__item.open .faq__icon {
     transform: rotate(180deg);
     border-color: var(--ink);
-    background: var(--bg);
+    background: rgba(1, 62, 55, 0.6);
   }
   .faq__item.open .faq__icon::after {
     transform: scaleY(0);
@@ -398,14 +399,14 @@
   /* ═══════════ ПОДВАЛ ═══════════ */
   .footer {
     width: 100%;
-    background: var(--ink);
+    background: var(--header-bg);
     color: var(--on-dark);
     padding: 72px 40px 56px;
     text-align: center;
   }
 
   .footer__brand {
-    font-family: 'Grosia', serif;
+    font-family: 'GrosiaPersonalUseOnlyRegular', 'Grosia', 'Gilroy', serif;
     font-size: 44px;
     letter-spacing: 0.06em;
     color: var(--on-dark);
@@ -483,7 +484,10 @@
       gap: 10px;
     }
     .header__left { flex: 1 1 auto; min-width: 0; }
-    .header__brand { font-size: 20px; }
+    .header__brand {
+      font-family: 'GrosiaPersonalUseOnlyRegular', 'Grosia', 'Gilroy', serif;
+      font-size: 20px;
+    }
     .header__tagline { font-size: 9px; letter-spacing: 0.22em; }
     .header__socials {
       flex-wrap: nowrap;
@@ -509,7 +513,10 @@
     .faq__answer-inner { font-size: 16px; padding-bottom: 20px; }
 
     .footer { padding: 48px 18px 38px; }
-    .footer__brand { font-size: 30px; }
+    .footer__brand {
+      font-family: 'GrosiaPersonalUseOnlyRegular', 'Grosia', 'Gilroy', serif;
+      font-size: 30px;
+    }
     .footer__tagline { font-size: 12px; letter-spacing: 0.26em; margin-bottom: 32px; }
     .footer__contacts { gap: 10px 22px; }
     .footer__contacts a, .footer__contacts span { font-size: 15px; }
@@ -532,7 +539,7 @@
     <a class="sticker" href="https://wa.me/79064382903" target="_blank" rel="noopener" aria-label="WhatsApp" title="WhatsApp">
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 3.9C17.9 1.8 15.1.6 12 .6 5.7.6.6 5.7.6 12c0 2 .5 3.9 1.5 5.6L.5 23.5l6-1.6c1.6.9 3.5 1.4 5.5 1.4 6.3 0 11.4-5.1 11.4-11.4 0-3-1.2-5.9-3.4-8zM12 21.4c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4c-1-1.6-1.5-3.4-1.5-5.3C2.2 6.5 6.6 2.1 12 2.1c2.7 0 5.2 1 7.1 3 1.9 1.9 2.9 4.4 2.9 7.1 0 5.4-4.4 9.2-10 9.2zm5.5-6.8c-.3-.2-1.8-.9-2.1-1s-.5-.2-.7.2-.8 1-.9 1.2c-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.6c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5s-.7-1.7-.9-2.3c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1 2.9 1.2 3.1c.2.2 2 3.1 4.9 4.3 1.9.8 2.6.9 3.6.7.6-.1 1.8-.7 2.1-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.2-.5-.3z"/></svg>
     </a>
-    <a class="sticker" href="https://www.instagram.com/aurabyangel_jw?stkn=bmNuZzBsNzFlZzFv" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">
+    <a class="sticker" href="https://www.instagram.com/aura.by_angel" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/></svg>
     </a>
   </nav>
@@ -903,11 +910,11 @@
   <div class="footer__tagline">Ювелирные украшения</div>
 
   <div class="footer__contacts">
-    <a href="tel:+79002563534">+7 906 438-29-03</a>
-    <a href="mailto:anzela171@icloud.com">anzela171@icloud.com</a>
+    <a href="tel:+79002563534">+7 900 256-35-34</a>
+    <a href="mailto:anzhela.ashinovaa@mail.ru">anzhela.ashinovaa@mail.ru</a>
     <a href="https://t.me/aurabyangel_jw" target="_blank" rel="noopener">Telegram</a>
     <a href="https://wa.me/79064382903" target="_blank" rel="noopener">WhatsApp</a>
-    <a href="https://www.instagram.com/aurabyangel_jw?stkn=bmNuZzBsNzFlZzFv" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://www.instagram.com/aura.by_angel" target="_blank" rel="noopener">Instagram</a>
   </div>
 
   <div class="footer__socials">
@@ -917,7 +924,7 @@
     <a class="sticker" href="https://wa.me/79064382903" target="_blank" rel="noopener" aria-label="WhatsApp">
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 3.9C17.9 1.8 15.1.6 12 .6 5.7.6.6 5.7.6 12c0 2 .5 3.9 1.5 5.6L.5 23.5l6-1.6c1.6.9 3.5 1.4 5.5 1.4 6.3 0 11.4-5.1 11.4-11.4 0-3-1.2-5.9-3.4-8zM12 21.4c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4c-1-1.6-1.5-3.4-1.5-5.3C2.2 6.5 6.6 2.1 12 2.1c2.7 0 5.2 1 7.1 3 1.9 1.9 2.9 4.4 2.9 7.1 0 5.4-4.4 9.2-10 9.2zm5.5-6.8c-.3-.2-1.8-.9-2.1-1s-.5-.2-.7.2-.8 1-.9 1.2c-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.6c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5s-.7-1.7-.9-2.3c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1 2.9 1.2 3.1c.2.2 2 3.1 4.9 4.3 1.9.8 2.6.9 3.6.7.6-.1 1.8-.7 2.1-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.2-.5-.3z"/></svg>
     </a>
-    <a class="sticker" href="https://www.instagram.com/aurabyangel_jw?stkn=bmNuZzBsNzFlZzFv" target="_blank" rel="noopener" aria-label="Instagram">
+    <a class="sticker" href="https://www.instagram.com/aura.by_angel" target="_blank" rel="noopener" aria-label="Instagram">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/></svg>
     </a>
   </div>
