@@ -29,15 +29,15 @@
 
   /* ═══════════ ПЕРЕМЕННЫЕ ЦВЕТА ═══════════ */
   :root {
-    --bg: #010F22;                                  /* фон сайта (тёмно-синий) */
-    --ink: #F0C808;                                 /* цвет текста на сайте (розовый) */
-    --card: rgba(246, 144, 174, 0.06);              /* фон карточек */
-    --line: rgba(246, 144, 174, 0.18);
-    --line-strong: rgba(246, 144, 174, 0.42);
-    --ink-soft: rgba(246, 144, 174, 0.72);
-    --header-bg: #F0C808;                           /* фон шапки/подвала (золотой) */
-    --on-dark: #010F22;                             /* текст на шапке/подвале (тёмно-синий) */
-    --on-dark-soft: rgba(1, 15, 34, 0.72);
+    --bg: #F2EEBF;                                  /* фон сайта (светло-кремовый) */
+    --ink: #320C35;                                 /* основной текст на сайте */
+    --card: rgba(50, 12, 53, 0.05);                 /* фон карточек */
+    --line: rgba(50, 12, 53, 0.15);
+    --line-strong: rgba(50, 12, 53, 0.35);
+    --ink-soft: rgba(50, 12, 53, 0.7);
+    --header-bg: #320C35;                           /* фон шапки/подвала */
+    --on-dark: #F2EEBF;                             /* текст на шапке/подвале */
+    --on-dark-soft: rgba(242, 238, 191, 0.72);
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -100,12 +100,12 @@
     flex-shrink: 0;
   }
 
-   .sticker {
+  .sticker {
     width: 42px;
     height: 42px;
     border-radius: 50%;
-    background: rgba(1, 15, 34, 0.08);
-    border: 1px solid rgba(1, 15, 34, 0.25);
+    background: rgba(242, 238, 191, 0.08);
+    border: 1px solid rgba(242, 238, 191, 0.28);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -114,8 +114,8 @@
     transition: background 0.25s, border-color 0.25s, transform 0.25s;
   }
   .sticker:hover {
-    background: rgba(1, 15, 34, 0.16);
-    border-color: rgba(1, 15, 34, 0.5);
+    background: rgba(242, 238, 191, 0.16);
+    border-color: rgba(242, 238, 191, 0.55);
     transform: translateY(-2px);
   }
   .sticker svg { width: 18px; height: 18px; }
@@ -173,7 +173,7 @@
   .soft-list li:hover {
     border-color: var(--line-strong);
     transform: translateY(-2px);
-    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.35);
+    box-shadow: 0 12px 26px rgba(50, 12, 53, 0.12);
   }
 
   /* Пронумерованный список — каждый пункт карточка */
@@ -201,7 +201,7 @@
   .steps li:hover {
     border-color: var(--line-strong);
     transform: translateY(-2px);
-    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.35);
+    box-shadow: 0 12px 26px rgba(50, 12, 53, 0.12);
   }
   .steps li::before {
     content: counter(step);
@@ -219,7 +219,7 @@
     font-family: 'Grosia', serif;
     font-size: 14px;
     color: var(--ink);
-    background: rgba(1, 15, 34, 0.6);
+    background: var(--bg);
   }
 
   /* Небольшие заголовки внутри секций */
@@ -318,12 +318,12 @@
   .faq__item:hover {
     border-color: var(--line-strong);
     transform: translateY(-3px);
-    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.38);
+    box-shadow: 0 14px 30px rgba(50, 12, 53, 0.14);
   }
 
   .faq__item.open {
     border-color: var(--ink);
-    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 14px 30px rgba(50, 12, 53, 0.16);
   }
 
   .faq__question {
@@ -373,7 +373,7 @@
   .faq__item.open .faq__icon {
     transform: rotate(180deg);
     border-color: var(--ink);
-    background: rgba(1, 15, 34, 0.6);
+    background: var(--bg);
   }
   .faq__item.open .faq__icon::after {
     transform: scaleY(0);
