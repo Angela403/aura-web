@@ -35,9 +35,9 @@
     --line: rgba(246, 144, 174, 0.18);
     --line-strong: rgba(246, 144, 174, 0.42);
     --ink-soft: rgba(246, 144, 174, 0.72);
-    --header-bg: #F690AE;                           /* фон шапки/подвала (розовый) */
-    --on-dark: #F0C808;                             /* текст на шапке/подвале (золотой) */
-    --on-dark-soft: rgba(240, 200, 8, 0.78);
+    --header-bg: #F0C808;                           /* фон шапки/подвала (золотой) */
+    --on-dark: #010F22;                             /* текст на шапке/подвале (тёмно-синий) */
+    --on-dark-soft: rgba(1, 15, 34, 0.72);
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -100,12 +100,12 @@
     flex-shrink: 0;
   }
 
-  .sticker {
+   .sticker {
     width: 42px;
     height: 42px;
     border-radius: 50%;
-    background: rgba(240, 200, 8, 0.1);
-    border: 1px solid rgba(240, 200, 8, 0.35);
+    background: rgba(1, 15, 34, 0.08);
+    border: 1px solid rgba(1, 15, 34, 0.25);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -114,8 +114,8 @@
     transition: background 0.25s, border-color 0.25s, transform 0.25s;
   }
   .sticker:hover {
-    background: rgba(240, 200, 8, 0.22);
-    border-color: rgba(240, 200, 8, 0.6);
+    background: rgba(1, 15, 34, 0.16);
+    border-color: rgba(1, 15, 34, 0.5);
     transform: translateY(-2px);
   }
   .sticker svg { width: 18px; height: 18px; }
