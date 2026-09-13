@@ -7,13 +7,13 @@
 
 <style>
   /* ═══════════ ШРИФТЫ ═══════════ */
-@font-face {
-  font-family: 'GrosiaPersonalUseOnlyRegular';
-  src: url('fonts/grosia.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
+  @font-face {
+    font-family: 'GrosiaPersonalUseOnlyRegular';
+    src: url('fonts/grosia.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
 
   @font-face {
     font-family: 'Gilroy';
@@ -27,14 +27,14 @@
 
   /* ═══════════ ПЕРЕМЕННЫЕ ЦВЕТА ═══════════ */
   :root {
-    --bg: #FFFFFF;                                  /* фон сайта (белый) */
-    --ink: #010F22;                                 /* основной текст на сайте */
-    --card: rgba(1, 15, 34, 0.04);                  /* фон карточек */
+    --bg: #FFFFFF;
+    --ink: #010F22;
+    --card: rgba(1, 15, 34, 0.04);
     --line: rgba(1, 15, 34, 0.12);
     --line-strong: rgba(1, 15, 34, 0.3);
     --ink-soft: rgba(1, 15, 34, 0.7);
-    --header-bg: #010F22;                           /* фон шапки/подвала */
-    --on-dark: #FFFFFF;                             /* текст на шапке/подвале (белый) */
+    --header-bg: #010F22;
+    --on-dark: #FFFFFF;
     --on-dark-soft: rgba(255, 255, 255, 0.72);
   }
 
@@ -51,7 +51,7 @@
     line-height: 1.7;
   }
 
-  /* ═══════════ ШАПКА (ЗАКРЕПЛЁННАЯ) ═══════════ */
+  /* ═══════════ ШАПКА ═══════════ */
   .header {
     position: sticky;
     top: 0;
@@ -75,7 +75,7 @@
   }
 
   .header__brand {
-    font-family: 'GrosiaPersonalUseOnlyRegular', 'Grosia', 'Gilroy', serif;
+    font-family: 'GrosiaPersonalUseOnlyRegular', serif;
     font-weight: 400;
     font-size: 28px;
     letter-spacing: 0.06em;
@@ -151,7 +151,6 @@
   }
   .section p:last-child { margin-bottom: 0; }
 
-  /* Мягкие списки — карточки со скруглёнными краями */
   .soft-list {
     list-style: none;
     padding: 0;
@@ -175,7 +174,6 @@
     box-shadow: 0 12px 26px rgba(1, 15, 34, 0.1);
   }
 
-  /* Пронумерованный список — каждый пункт карточка */
   .steps {
     list-style: none;
     counter-reset: step;
@@ -221,7 +219,6 @@
     background: var(--bg);
   }
 
-  /* Небольшие заголовки внутри секций */
   .subtitle {
     font-family: 'Grosia', serif;
     font-size: 20px;
@@ -230,7 +227,6 @@
     margin: 26px 0 12px;
   }
 
-  /* Карточки-строки для «Наличие и предзаказ» */
   .info-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -256,7 +252,6 @@
   }
   .info-card p:last-child { margin-bottom: 0; }
 
-  /* Таблица доп. услуг */
   .services {
     width: 100%;
     border-collapse: collapse;
@@ -282,7 +277,6 @@
   .services td:last-child,
   .services th:last-child { text-align: right; }
 
-  /* Блок «не брак / брак» */
   .two-col {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -297,7 +291,7 @@
     letter-spacing: 0.02em;
   }
 
-  /* ═══════════ FAQ (аккордеон) ═══════════ */
+  /* ═══════════ FAQ ═══════════ */
   .faq {
     margin-top: 16px;
     display: flex;
@@ -405,7 +399,7 @@
   }
 
   .footer__brand {
-    font-family: 'GrosiaPersonalUseOnlyRegular', 'Grosia', 'Gilroy', serif;
+    font-family: 'GrosiaPersonalUseOnlyRegular', serif;
     font-weight: 400;
     font-size: 44px;
     letter-spacing: 0.06em;
@@ -485,7 +479,7 @@
     }
     .header__left { flex: 1 1 auto; min-width: 0; }
     .header__brand {
-      font-family: 'GrosiaPersonalUseOnlyRegular', 'Grosia', 'Gilroy', serif;
+      font-family: 'GrosiaPersonalUseOnlyRegular', serif;
       font-weight: 400;
       font-size: 20px;
     }
@@ -515,7 +509,7 @@
 
     .footer { padding: 48px 18px 38px; }
     .footer__brand {
-      font-family: 'GrosiaPersonalUseOnlyRegular', 'Grosia', 'Gilroy', serif;
+      font-family: 'GrosiaPersonalUseOnlyRegular', serif;
       font-weight: 400;
       font-size: 30px;
     }
@@ -550,7 +544,6 @@
 <!-- ═══════════ ОСНОВНОЙ КОНТЕНТ ═══════════ -->
 <main class="main">
 
-  <!-- О магазине -->
   <section class="section">
     <h2 class="section__title">О магазине</h2>
     <p class="section__lead">Aura bu Angel — украшения, которые хочется носить каждый день.</p>
@@ -559,7 +552,6 @@
     <p>Мы не гоняемся за количеством. Мы хотим, чтобы вы открыли посылку и улыбнулись.</p>
   </section>
 
-  <!-- Как заказать -->
   <section class="section">
     <h2 class="section__title">Как заказать</h2>
     <ol class="steps">
@@ -573,7 +565,6 @@
     <p style="margin-top: 16px;">Отвечаем лично, без ботов и шаблонных отписок.</p>
   </section>
 
-  <!-- Оплата -->
   <section class="section">
     <h2 class="section__title">Оплата</h2>
     <ul class="soft-list">
@@ -583,7 +574,6 @@
     <p>Оплата — 100%. Для заказов под заказ это важно: мы сразу оформляем украшение у поставщика, поэтому заказ отправляется в работу только после оплаты.</p>
   </section>
 
-  <!-- Наличие и предзаказ -->
   <section class="section">
     <h2 class="section__title">Наличие и предзаказ</h2>
     <div class="info-row">
@@ -600,7 +590,6 @@
     <p style="margin-top: 16px;">Точный срок сообщаем при подтверждении заказа — он зависит от позиции и поставщика. Если украшение под заказ вдруг недоступно, мы сообщаем об этом в течение 24 часов и предлагаем замену или возврат суммы.</p>
   </section>
 
-  <!-- Доставка -->
   <section class="section">
     <h2 class="section__title">Доставка</h2>
 
@@ -621,7 +610,6 @@
     <p>Трек-номер присылаем сразу после отправки.</p>
   </section>
 
-  <!-- Упаковка -->
   <section class="section">
     <h2 class="section__title">Упаковка</h2>
 
@@ -642,7 +630,6 @@
     <p>Если украшение — подарок, напишите нам. Соберём так, чтобы можно было вручать сразу, ничего не доделывая.</p>
   </section>
 
-  <!-- Гарантия -->
   <section class="section">
     <h2 class="section__title">Гарантия</h2>
     <p>На все украшения действует гарантия 12 дней с момента получения заказа. Если за это время обнаружился производственный брак — мы решаем вопрос за счёт магазина: меняем украшение или возвращаем деньги.</p>
@@ -674,7 +661,6 @@
     </div>
   </section>
 
-  <!-- Возврат и обмен -->
   <section class="section">
     <h2 class="section__title">Возврат и обмен</h2>
 
@@ -695,7 +681,6 @@
     <p style="margin-top: 18px;"><strong>Важно:</strong> если заказ пришёл дистанционно, сохраните бирку или ценник с уникальным идентификационным номером. Без неё оформить возврат по браку не получится. Просто не выбрасывайте бирку, пока не убедитесь, что всё в порядке.</p>
   </section>
 
-  <!-- Дополнительные услуги -->
   <section class="section">
     <h2 class="section__title">Дополнительные услуги</h2>
     <table class="services">
@@ -716,7 +701,6 @@
     </table>
   </section>
 
-  <!-- FAQ -->
   <section class="section">
     <h2 class="section__title">Частые вопросы</h2>
     <div class="faq" id="faq">
@@ -935,7 +919,6 @@
 </footer>
 
 <script>
-  // ═══════════ FAQ АККОРДЕОН ═══════════
   document.querySelectorAll('.faq__item').forEach(item => {
     const btn = item.querySelector('.faq__question');
     const ans = item.querySelector('.faq__answer');
@@ -943,7 +926,6 @@
     btn.addEventListener('click', () => {
       const isOpen = item.classList.contains('open');
 
-      // Закрываем все остальные
       document.querySelectorAll('.faq__item.open').forEach(other => {
         if (other !== item) {
           other.classList.remove('open');
@@ -951,7 +933,6 @@
         }
       });
 
-      // Переключаем текущий
       if (isOpen) {
         item.classList.remove('open');
         ans.style.maxHeight = null;
@@ -962,7 +943,6 @@
     });
   });
 
-  // Пересчёт высоты при ресайзе
   window.addEventListener('resize', () => {
     document.querySelectorAll('.faq__item.open .faq__answer').forEach(ans => {
       ans.style.maxHeight = ans.scrollHeight + 'px';
