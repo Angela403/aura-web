@@ -27,17 +27,17 @@
     font-display: swap;
   }
 
-   /* ═══════════ ПЕРЕМЕННЫЕ ЦВЕТА ═══════════ */
+  /* ═══════════ ПЕРЕМЕННЫЕ ЦВЕТА ═══════════ */
   :root {
-    --bg: #013E37;                                  /* фон сайта (тёмно-зелёный) */
-    --ink: #F690AE;                                 /* цвет текста (розовый) */
+    --bg: #010F22;                                  /* фон сайта (тёмно-синий) */
+    --ink: #F690AE;                                 /* цвет текста на сайте (розовый) */
     --card: rgba(246, 144, 174, 0.06);              /* фон карточек */
     --line: rgba(246, 144, 174, 0.18);
     --line-strong: rgba(246, 144, 174, 0.42);
     --ink-soft: rgba(246, 144, 174, 0.72);
-    --header-bg: #F690AE;                           /* фон шапки/подвала */
-    --on-dark: #013E37;                             /* текст на шапке/подвале */
-    --on-dark-soft: rgba(1, 62, 55, 0.7);
+    --header-bg: #F690AE;                           /* фон шапки/подвала (розовый) */
+    --on-dark: #F0C808;                             /* текст на шапке/подвале (золотой) */
+    --on-dark-soft: rgba(240, 200, 8, 0.78);
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -104,8 +104,8 @@
     width: 42px;
     height: 42px;
     border-radius: 50%;
-    background: rgba(1, 62, 55, 0.08);
-    border: 1px solid rgba(1, 62, 55, 0.22);
+    background: rgba(240, 200, 8, 0.1);
+    border: 1px solid rgba(240, 200, 8, 0.35);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -114,8 +114,8 @@
     transition: background 0.25s, border-color 0.25s, transform 0.25s;
   }
   .sticker:hover {
-    background: rgba(1, 62, 55, 0.16);
-    border-color: rgba(1, 62, 55, 0.45);
+    background: rgba(240, 200, 8, 0.22);
+    border-color: rgba(240, 200, 8, 0.6);
     transform: translateY(-2px);
   }
   .sticker svg { width: 18px; height: 18px; }
@@ -173,7 +173,7 @@
   .soft-list li:hover {
     border-color: var(--line-strong);
     transform: translateY(-2px);
-    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.35);
   }
 
   /* Пронумерованный список — каждый пункт карточка */
@@ -201,7 +201,7 @@
   .steps li:hover {
     border-color: var(--line-strong);
     transform: translateY(-2px);
-    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.35);
   }
   .steps li::before {
     content: counter(step);
@@ -219,7 +219,7 @@
     font-family: 'Grosia', serif;
     font-size: 14px;
     color: var(--ink);
-    background: rgba(1, 62, 55, 0.6);
+    background: rgba(1, 15, 34, 0.6);
   }
 
   /* Небольшие заголовки внутри секций */
@@ -318,12 +318,12 @@
   .faq__item:hover {
     border-color: var(--line-strong);
     transform: translateY(-3px);
-    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.28);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.38);
   }
 
   .faq__item.open {
     border-color: var(--ink);
-    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.4);
   }
 
   .faq__question {
@@ -373,7 +373,7 @@
   .faq__item.open .faq__icon {
     transform: rotate(180deg);
     border-color: var(--ink);
-    background: rgba(1, 62, 55, 0.6);
+    background: rgba(1, 15, 34, 0.6);
   }
   .faq__item.open .faq__icon::after {
     transform: scaleY(0);
@@ -438,7 +438,7 @@
     font-size: 16px;
     letter-spacing: 0.04em;
     transition: color 0.2s, opacity 0.2s;
-    opacity: 0.9;
+    opacity: 0.92;
   }
   .footer__contacts a:hover { color: var(--on-dark); opacity: 1; }
 
