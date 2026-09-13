@@ -29,15 +29,15 @@
 
   /* ═══════════ ПЕРЕМЕННЫЕ ЦВЕТА ═══════════ */
   :root {
-    --bg: #F2EEBF;                                  /* фон сайта (светло-кремовый) */
-    --ink: #320C35;                                 /* основной текст на сайте */
-    --card: rgba(50, 12, 53, 0.05);                 /* фон карточек */
-    --line: rgba(50, 12, 53, 0.15);
-    --line-strong: rgba(50, 12, 53, 0.35);
-    --ink-soft: rgba(50, 12, 53, 0.7);
-    --header-bg: #320C35;                           /* фон шапки/подвала */
-    --on-dark: #F2EEBF;                             /* текст на шапке/подвале */
-    --on-dark-soft: rgba(242, 238, 191, 0.72);
+    --bg: #FFFFFF;                                  /* фон сайта (белый) */
+    --ink: #010F22;                                 /* основной текст на сайте */
+    --card: rgba(1, 15, 34, 0.04);                  /* фон карточек */
+    --line: rgba(1, 15, 34, 0.12);
+    --line-strong: rgba(1, 15, 34, 0.3);
+    --ink-soft: rgba(1, 15, 34, 0.7);
+    --header-bg: #010F22;                           /* фон шапки/подвала */
+    --on-dark: #FFFFFF;                             /* текст на шапке/подвале (белый) */
+    --on-dark-soft: rgba(255, 255, 255, 0.72);
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -78,6 +78,7 @@
 
   .header__brand {
     font-family: 'GrosiaPersonalUseOnlyRegular', 'Grosia', 'Gilroy', serif;
+    font-weight: 400;
     font-size: 28px;
     letter-spacing: 0.06em;
     color: var(--on-dark);
@@ -104,8 +105,8 @@
     width: 42px;
     height: 42px;
     border-radius: 50%;
-    background: rgba(242, 238, 191, 0.08);
-    border: 1px solid rgba(242, 238, 191, 0.28);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.25);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -114,8 +115,8 @@
     transition: background 0.25s, border-color 0.25s, transform 0.25s;
   }
   .sticker:hover {
-    background: rgba(242, 238, 191, 0.16);
-    border-color: rgba(242, 238, 191, 0.55);
+    background: rgba(255, 255, 255, 0.16);
+    border-color: rgba(255, 255, 255, 0.5);
     transform: translateY(-2px);
   }
   .sticker svg { width: 18px; height: 18px; }
@@ -173,7 +174,7 @@
   .soft-list li:hover {
     border-color: var(--line-strong);
     transform: translateY(-2px);
-    box-shadow: 0 12px 26px rgba(50, 12, 53, 0.12);
+    box-shadow: 0 12px 26px rgba(1, 15, 34, 0.1);
   }
 
   /* Пронумерованный список — каждый пункт карточка */
@@ -201,7 +202,7 @@
   .steps li:hover {
     border-color: var(--line-strong);
     transform: translateY(-2px);
-    box-shadow: 0 12px 26px rgba(50, 12, 53, 0.12);
+    box-shadow: 0 12px 26px rgba(1, 15, 34, 0.1);
   }
   .steps li::before {
     content: counter(step);
@@ -318,12 +319,12 @@
   .faq__item:hover {
     border-color: var(--line-strong);
     transform: translateY(-3px);
-    box-shadow: 0 14px 30px rgba(50, 12, 53, 0.14);
+    box-shadow: 0 14px 30px rgba(1, 15, 34, 0.12);
   }
 
   .faq__item.open {
     border-color: var(--ink);
-    box-shadow: 0 14px 30px rgba(50, 12, 53, 0.16);
+    box-shadow: 0 14px 30px rgba(1, 15, 34, 0.14);
   }
 
   .faq__question {
@@ -407,6 +408,7 @@
 
   .footer__brand {
     font-family: 'GrosiaPersonalUseOnlyRegular', 'Grosia', 'Gilroy', serif;
+    font-weight: 400;
     font-size: 44px;
     letter-spacing: 0.06em;
     color: var(--on-dark);
@@ -486,6 +488,7 @@
     .header__left { flex: 1 1 auto; min-width: 0; }
     .header__brand {
       font-family: 'GrosiaPersonalUseOnlyRegular', 'Grosia', 'Gilroy', serif;
+      font-weight: 400;
       font-size: 20px;
     }
     .header__tagline { font-size: 9px; letter-spacing: 0.22em; }
@@ -515,6 +518,7 @@
     .footer { padding: 48px 18px 38px; }
     .footer__brand {
       font-family: 'GrosiaPersonalUseOnlyRegular', 'Grosia', 'Gilroy', serif;
+      font-weight: 400;
       font-size: 30px;
     }
     .footer__tagline { font-size: 12px; letter-spacing: 0.26em; margin-bottom: 32px; }
