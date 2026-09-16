@@ -118,18 +118,8 @@
     min-width: 0;
   }
 
-  /* Miama Nueva — название бренда */
-  .header__brand {
-    font-family: 'MiamaNueva', cursive;
-    font-weight: normal;
-    font-size: 22px;
-    letter-spacing: 0.02em;
-    color: var(--on-dark);
-    line-height: 1.1;
-    margin-bottom: 2px;
-  }
-
-    .header__tagline {
+  /* Подпись сверху */
+  .header__tagline {
     font-family: 'Gilroy', sans-serif;
     font-size: 8px;
     font-weight: 300;
@@ -138,7 +128,17 @@
     color: var(--on-dark);
     opacity: 0.72;
     line-height: 1.2;
-    padding-left: 6px;
+    margin-bottom: 4px;
+  }
+
+  /* Miama Nueva — название бренда снизу */
+  .header__brand {
+    font-family: 'MiamaNueva', cursive;
+    font-weight: normal;
+    font-size: 22px;
+    letter-spacing: 0.02em;
+    color: var(--on-dark);
+    line-height: 1.1;
   }
 
   .header__nav { display: flex; gap: 26px; flex-wrap: wrap; }
@@ -638,18 +638,8 @@
     line-height: 1;
   }
 
-  /* Miama Nueva — название бренда в подвале */
-  .footer__brand {
-    font-family: 'MiamaNueva', cursive;
-    font-weight: normal;
-    font-size: 28px;
-    letter-spacing: 0.02em;
-    color: var(--on-dark);
-    line-height: 1.1;
-    margin-bottom: 2px;
-  }
-
-    .footer__subtagline {
+  /* Подпись сверху */
+  .footer__subtagline {
     font-family: 'Gilroy', sans-serif;
     font-size: 9px;
     font-weight: 300;
@@ -658,7 +648,17 @@
     color: var(--on-dark);
     opacity: 0.72;
     line-height: 1.2;
-    padding-left: 8px;
+    margin-bottom: 4px;
+  }
+
+  /* Miama Nueva — название бренда снизу */
+  .footer__brand {
+    font-family: 'MiamaNueva', cursive;
+    font-weight: normal;
+    font-size: 28px;
+    letter-spacing: 0.02em;
+    color: var(--on-dark);
+    line-height: 1.1;
   }
 
   .footer__contacts {
@@ -763,8 +763,8 @@
       border-radius: 11px;
       flex-shrink: 0;
     }
-    .header__brand { font-size: 17px; margin-bottom: 3px; }
-    .header__tagline { font-size: 7px; letter-spacing: 0.22em; }
+    .header__brand { font-size: 17px; }
+    .header__tagline { font-size: 7px; letter-spacing: 0.22em; margin-bottom: 3px; }
     .header__socials {
       flex-wrap: nowrap;
       flex-shrink: 0;
@@ -797,7 +797,7 @@
     .footer { padding: 44px 20px 30px; }
     .footer__logo-wrap { width: 56px; height: 56px; padding: 9px; border-radius: 14px; }
     .footer__brand { font-size: 22px; }
-    .footer__subtagline { font-size: 8px; }
+    .footer__subtagline { font-size: 8px; margin-bottom: 3px; }
   }
   @media (max-width: 480px) {
     .gallery { grid-template-columns: 1fr; }
@@ -814,8 +814,8 @@
       <img class="header__logo" src="images/Frame30.svg" alt="Aura by Angel" />
     </div>
     <div class="header__text">
-      <div class="header__brand">Aura by Angel</div>
       <div class="header__tagline">Ювелирные украшения</div>
+      <div class="header__brand">Aura by Angel</div>
     </div>
   </div>
 
@@ -1237,8 +1237,8 @@
       <img class="footer__logo" src="images/Frame30.svg" alt="Aura by Angel" />
     </div>
     <div class="footer__text">
-      <div class="footer__brand">Aura by Angel</div>
       <div class="footer__subtagline">Ювелирные украшения</div>
+      <div class="footer__brand">Aura by Angel</div>
     </div>
   </div>
 
