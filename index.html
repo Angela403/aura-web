@@ -104,7 +104,10 @@
     height: 100%;
     object-fit: contain;
     display: block;
+    cursor: zoom-in;
+    transition: transform 0.25s ease;
   }
+  .header__logo:hover { transform: scale(1.06); }
 
   .header__text {
     display: flex;
@@ -112,12 +115,12 @@
     line-height: 1;
   }
 
-  /* Grosia — название бренда */
+  /* Snell Roundhand — название бренда */
   .header__brand {
-    font-family: 'Grosia', serif;
+    font-family: 'SnellRoundhand', cursive;
     font-weight: normal;
-    font-size: 22px;
-    letter-spacing: 0.06em;
+    font-size: 26px;
+    letter-spacing: 0.02em;
     color: var(--on-dark);
     line-height: 1;
   }
@@ -228,7 +231,7 @@
   }
   .section.visible { opacity: 1; transform: translateY(0); }
 
-  /* Snell Roundhand — все заголовки */
+  /* Snell Roundhand — только заголовки секций */
   .section__title {
     font-family: 'SnellRoundhand', cursive;
     font-weight: normal;
@@ -290,11 +293,11 @@
   }
 
   .card__title {
-    font-family: 'SnellRoundhand', cursive;
-    font-weight: normal;
-    font-size: 28px;
+    font-family: 'Gilroy', sans-serif;
+    font-weight: 300;
+    font-size: 20px;
     margin-bottom: 6px;
-    line-height: 1.1;
+    line-height: 1.2;
   }
   .card__text {
     font-family: 'Gilroy', sans-serif;
@@ -377,11 +380,11 @@
     background: var(--card);
   }
   .info-card__title {
-    font-family: 'SnellRoundhand', cursive;
-    font-weight: normal;
-    font-size: 28px;
+    font-family: 'Gilroy', sans-serif;
+    font-weight: 300;
+    font-size: 18px;
     margin-bottom: 8px;
-    line-height: 1.1;
+    line-height: 1.2;
   }
   .info-card p {
     font-family: 'Gilroy', sans-serif;
@@ -399,21 +402,21 @@
     margin-top: 16px;
   }
   .two-col__title {
-    font-family: 'SnellRoundhand', cursive;
-    font-weight: normal;
-    font-size: 28px;
+    font-family: 'Gilroy', sans-serif;
+    font-weight: 300;
+    font-size: 18px;
     margin-bottom: 12px;
-    line-height: 1.1;
+    line-height: 1.2;
   }
 
   /* ═══════════ SUBTITLE ═══════════ */
   .subtitle {
-    font-family: 'SnellRoundhand', cursive;
-    font-weight: normal;
-    font-size: 30px;
-    letter-spacing: 0.01em;
+    font-family: 'Gilroy', sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+    letter-spacing: 0.02em;
     margin: 30px 0 14px;
-    line-height: 1.1;
+    line-height: 1.3;
   }
   .subtitle:first-of-type { margin-top: 6px; }
 
@@ -528,13 +531,13 @@
     justify-content: space-between;
     align-items: center;
     gap: 20px;
-    font-family: 'SnellRoundhand', cursive;
-    font-weight: normal;
-    font-size: 26px;
+    font-family: 'Gilroy', sans-serif;
+    font-weight: 300;
+    font-size: 18px;
     color: var(--ink);
     letter-spacing: 0.01em;
     transition: color 0.2s;
-    line-height: 1.15;
+    line-height: 1.3;
   }
   .faq__question:hover { color: var(--accent); }
 
@@ -587,7 +590,6 @@
     margin-top: 60px;
   }
 
-  /* В подвале тоже подложка только у логотипа */
   .footer__top {
     display: flex;
     align-items: center;
@@ -619,7 +621,10 @@
     height: 100%;
     object-fit: contain;
     display: block;
+    cursor: zoom-in;
+    transition: transform 0.25s ease;
   }
+  .footer__logo:hover { transform: scale(1.06); }
 
   .footer__text {
     display: flex;
@@ -628,11 +633,12 @@
     line-height: 1;
   }
 
+  /* Snell Roundhand — название бренда в подвале */
   .footer__brand {
-    font-family: 'Grosia', serif;
+    font-family: 'SnellRoundhand', cursive;
     font-weight: normal;
-    font-size: 28px;
-    letter-spacing: 0.06em;
+    font-size: 32px;
+    letter-spacing: 0.02em;
     color: var(--on-dark);
     line-height: 1;
   }
@@ -700,13 +706,65 @@
     to { opacity: 1; transform: translateY(0); }
   }
 
+  /* ═══════════ ЛАЙТБОКС ЛОГОТИПА ═══════════ */
+  .logo-lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(20, 8, 10, 0.88);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 5000;
+    cursor: zoom-out;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    padding: 24px;
+  }
+  .logo-lightbox.open {
+    display: flex;
+    opacity: 1;
+  }
+  .logo-lightbox img {
+    max-width: 80vw;
+    max-height: 80vh;
+    width: auto;
+    height: auto;
+    display: block;
+    animation: zoomIn 0.35s ease;
+  }
+  @keyframes zoomIn {
+    from { transform: scale(0.85); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+
   /* ═══════════ АДАПТИВ ═══════════ */
   @media (max-width: 800px) {
-    .header { padding: 12px 20px; flex-wrap: wrap; gap: 12px; }
+    .header {
+      padding: 12px 16px;
+      flex-wrap: nowrap;
+      gap: 10px;
+      align-items: center;
+    }
     .header__nav { display: none; }
-    .header__logo-wrap { width: 48px; height: 48px; padding: 8px; border-radius: 12px; }
+    .header__left { flex: 1 1 auto; min-width: 0; }
+    .header__logo-wrap {
+      width: 44px;
+      height: 44px;
+      padding: 7px;
+      border-radius: 11px;
+      flex-shrink: 0;
+    }
     .header__brand { font-size: 18px; }
-    .header__tagline { font-size: 9px; }
+    .header__tagline { font-size: 8px; letter-spacing: 0.24em; }
+    .header__socials {
+      flex-wrap: nowrap;
+      flex-shrink: 0;
+      gap: 6px;
+    }
+    .sticker { width: 32px; height: 32px; }
+    .sticker svg { width: 14px; height: 14px; }
 
     .hero { padding: 60px 20px 40px; text-align: center; }
     .hero__title { font-size: 36px; }
@@ -716,7 +774,7 @@
     .section { padding: 35px 20px 50px; }
     .section__title { font-size: 40px; text-align: center; border-bottom: none; padding-bottom: 0; }
     .card { grid-template-columns: 1fr; padding: 20px 0; }
-    .card__title { font-size: 24px; }
+    .card__title { font-size: 18px; }
     .card__icon { margin-bottom: 4px; }
 
     .steps li { padding-left: 50px; }
@@ -727,16 +785,15 @@
 
     .reviews { grid-template-columns: 1fr 1fr; gap: 10px; }
 
-    .faq__question { font-size: 22px; padding: 18px 0; }
+    .faq__question { font-size: 16px; padding: 18px 0; }
 
     .footer { padding: 48px 20px 32px; }
     .footer__logo-wrap { width: 60px; height: 60px; padding: 10px; border-radius: 14px; }
-    .footer__brand { font-size: 22px; }
+    .footer__brand { font-size: 26px; }
   }
   @media (max-width: 480px) {
     .gallery { grid-template-columns: 1fr; }
     .info-row, .two-col { grid-template-columns: 1fr; }
-    .header__socials .sticker { width: 32px; height: 32px; }
   }
 </style>
 </head>
@@ -1217,6 +1274,11 @@
   <div class="footer__note">© Aura by Angel · Майкоп · 2026</div>
 </footer>
 
+<!-- Лайтбокс для логотипа -->
+<div class="logo-lightbox" id="logoLightbox">
+  <img src="images/Frame30.svg" alt="Aura by Angel" />
+</div>
+
 <script>
   // ═══════════ ПЛАВНОЕ ПОЯВЛЕНИЕ ═══════════
   const observer = new IntersectionObserver(entries => {
@@ -1256,6 +1318,24 @@
     document.querySelectorAll('.faq__item.open .faq__answer').forEach(ans => {
       ans.style.maxHeight = ans.scrollHeight + 'px';
     });
+  });
+
+  // ═══════════ ЛАЙТБОКС ЛОГОТИПА ═══════════
+  const lightbox = document.getElementById('logoLightbox');
+  const logoTriggers = document.querySelectorAll('.header__logo, .footer__logo');
+
+  logoTriggers.forEach(img => {
+    img.addEventListener('click', () => {
+      lightbox.classList.add('open');
+    });
+  });
+
+  lightbox.addEventListener('click', () => {
+    lightbox.classList.remove('open');
+  });
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') lightbox.classList.remove('open');
   });
 </script>
 
