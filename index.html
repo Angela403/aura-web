@@ -76,30 +76,34 @@
   .header__left {
     display: flex;
     align-items: center;
+    gap: 14px;
     min-width: 0;
   }
 
-  /* Овальная светлая подложка: лого + бренд + подпись */
-  .header__card {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    padding: 8px 24px 8px 14px;
-    border-radius: 999px;
+  /* Подложка только у логотипа — скруглённый квадрат */
+  .header__logo-wrap {
+    width: 60px;
+    height: 60px;
+    border-radius: 14px;
     background: rgba(254, 239, 184, 0.14);
     border: 1px solid rgba(254, 239, 184, 0.42);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    padding: 10px;
     transition: background 0.3s ease, border-color 0.3s ease;
   }
-  .header__card:hover {
+  .header__logo-wrap:hover {
     background: rgba(254, 239, 184, 0.2);
     border-color: rgba(254, 239, 184, 0.7);
   }
 
   .header__logo {
-    height: 46px;
-    width: auto;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
     display: block;
-    flex-shrink: 0;
   }
 
   .header__text {
@@ -224,7 +228,7 @@
   }
   .section.visible { opacity: 1; transform: translateY(0); }
 
-  /* Snell Roundhand — все заголовки секций */
+  /* Snell Roundhand — все заголовки */
   .section__title {
     font-family: 'SnellRoundhand', cursive;
     font-weight: normal;
@@ -439,7 +443,7 @@
   .services td:last-child,
   .services th:last-child { text-align: right; }
 
-  /* ═══════════ ГАЛЕРЕЯ УПАКОВКИ ═══════════ */
+  /* ═══════════ ГАЛЕРЕЯ ═══════════ */
   .gallery {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr;
@@ -457,10 +461,7 @@
     padding: 16px;
     transition: border-color 0.3s, transform 0.3s;
   }
-  .gallery__item:first-child {
-    grid-row: span 2;
-    aspect-ratio: auto;
-  }
+  .gallery__item:first-child { grid-row: span 2; aspect-ratio: auto; }
   .gallery__item:hover { border-color: var(--accent); transform: translateY(-2px); }
   .gallery__label {
     font-family: 'Gilroy', sans-serif;
@@ -586,26 +587,37 @@
     margin-top: 60px;
   }
 
-  /* Овальная подложка: лого + бренд + подпись */
-  .footer__card {
-    display: inline-flex;
+  /* В подвале тоже подложка только у логотипа */
+  .footer__top {
+    display: flex;
     align-items: center;
-    gap: 18px;
-    padding: 12px 34px 12px 18px;
-    border-radius: 999px;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+
+  .footer__logo-wrap {
+    width: 72px;
+    height: 72px;
+    border-radius: 16px;
     background: rgba(254, 239, 184, 0.14);
     border: 1px solid rgba(254, 239, 184, 0.42);
-    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    padding: 12px;
     transition: background 0.3s ease, border-color 0.3s ease;
   }
-  .footer__card:hover {
+  .footer__logo-wrap:hover {
     background: rgba(254, 239, 184, 0.2);
     border-color: rgba(254, 239, 184, 0.7);
   }
 
   .footer__logo {
-    height: 58px;
-    width: auto;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
     display: block;
   }
 
@@ -653,7 +665,6 @@
   }
   .footer__contacts a:hover { opacity: 1; }
 
-  /* Соцсети в подвале — текстом */
   .footer__socials {
     display: flex;
     justify-content: center;
@@ -672,10 +683,7 @@
     transition: opacity 0.25s;
   }
   .footer__socials a:hover { opacity: 1; }
-  .footer__sep {
-    color: var(--on-dark);
-    opacity: 0.5;
-  }
+  .footer__sep { color: var(--on-dark); opacity: 0.5; }
 
   .footer__note {
     font-family: 'Gilroy', sans-serif;
@@ -696,8 +704,7 @@
   @media (max-width: 800px) {
     .header { padding: 12px 20px; flex-wrap: wrap; gap: 12px; }
     .header__nav { display: none; }
-    .header__card { padding: 6px 18px 6px 10px; gap: 10px; }
-    .header__logo { height: 38px; }
+    .header__logo-wrap { width: 48px; height: 48px; padding: 8px; border-radius: 12px; }
     .header__brand { font-size: 18px; }
     .header__tagline { font-size: 9px; }
 
@@ -723,8 +730,7 @@
     .faq__question { font-size: 22px; padding: 18px 0; }
 
     .footer { padding: 48px 20px 32px; }
-    .footer__card { padding: 10px 26px 10px 14px; gap: 14px; }
-    .footer__logo { height: 46px; }
+    .footer__logo-wrap { width: 60px; height: 60px; padding: 10px; border-radius: 14px; }
     .footer__brand { font-size: 22px; }
   }
   @media (max-width: 480px) {
@@ -739,12 +745,12 @@
 <!-- ═══════════ ШАПКА ═══════════ -->
 <header class="header">
   <div class="header__left">
-    <div class="header__card">
+    <div class="header__logo-wrap">
       <img class="header__logo" src="images/Frame30.svg" alt="Aura by Angel" />
-      <div class="header__text">
-        <div class="header__brand">Aura by Angel</div>
-        <div class="header__tagline">Ювелирные украшения</div>
-      </div>
+    </div>
+    <div class="header__text">
+      <div class="header__brand">Aura by Angel</div>
+      <div class="header__tagline">Ювелирные украшения</div>
     </div>
   </div>
 
@@ -1185,8 +1191,10 @@
 
 <!-- ═══════════ ПОДВАЛ ═══════════ -->
 <footer class="footer">
-  <div class="footer__card">
-    <img class="footer__logo" src="images/Frame30.svg" alt="Aura by Angel" />
+  <div class="footer__top">
+    <div class="footer__logo-wrap">
+      <img class="footer__logo" src="images/Frame30.svg" alt="Aura by Angel" />
+    </div>
     <div class="footer__text">
       <div class="footer__brand">Aura by Angel</div>
       <div class="footer__subtagline">Ювелирные украшения</div>
