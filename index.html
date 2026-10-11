@@ -266,22 +266,16 @@
     margin-bottom: 24px;
   }
 
-  .about-photo {
+   .about-photo {
     width: 220px;
-    aspect-ratio: 3 / 4;
+    height: 293px;
     border-radius: 12px;
-    background: var(--card);
-    border: 1px dashed var(--ink-faint);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Gilroy', sans-serif;
-    font-size: 11px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--ink-soft);
-    text-align: center;
-    padding: 16px;
+    border: 1px solid var(--ink-faint);
+    overflow: hidden;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    box-shadow: 0 4px 16px rgba(49, 14, 18, 0.06);
   }
 
   .about-text {
